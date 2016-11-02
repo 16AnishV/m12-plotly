@@ -24,7 +24,7 @@ g <- list(
 
 plot_geo(df) %>%
   add_trace(
-    z = ~GDP..BILLIONS., color = ~GDP..BILLIONS., colors = 'Purple',
+    z = ~GDP..BILLIONS., color = ~GDP..BILLIONS., colors = 'Purples',
     text = ~COUNTRY, locations = ~CODE, marker = list(line = l)
   ) %>%
   colorbar(title = 'GDP Billions US$', tickprefix = '$') %>%
