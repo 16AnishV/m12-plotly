@@ -12,14 +12,32 @@ View your new interactive website at YOUR-USERNAME.github.io/m12-plotly/exercise
 ``` {r echo=FALSE, message=FALSE}
 library(plotly)
 library(dplyr)
+
 View(mtcars)
 
-mtcars <- tibble::rownames_to_column(mtcars)
+mtcars <- mutate(mtcars, car_models = row.names(mtcars))
+mtcars <- mtcars[, c(12, 1, 2 , 4, 5, 6, 7, 8, 9, 10, 11)]
 
-plot_ly(mtcars, x = ~VALUE, y = ~mpg, type = 'scatter') %>%
+plot_ly(mtcars, x = ~car_models, y = ~mpg, type = 'scatter',
+        mode = 'text', text = ~car_models,
+        textfont = list(size = 10)) %>%
       layout(title = 'Various Cars and their MPGs',
-             xaxis = list(title = 'Car Models'),
+             xaxis = list(title = 'Car Models',
+                          zeroline = TRUE),
              yaxis = list(title = 'MPGs'))
+
+
+plot_ly(data, x = ~Bodywt, y = ~Brainwt, type = 'scatter',
+        mode = 'text', text = ~Primates, textposition = 'middle right',
+        textfont = list(color = '#000000', size = 16)) %>%
+# Pass object to the layout function
+        layout(title = 'Primates Brain and Body Weight',
+             xaxis = list(title = 'Body Weight (kg)',
+                          zeroline = TRUE,
+                          range = c(0, 250)),
+             yaxis = list(title = 'Brain Weight (g)',
+                          range = c(0,1400)))
+
 
 
 ```
