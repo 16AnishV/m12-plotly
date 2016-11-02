@@ -24,21 +24,6 @@ plot_ly(mtcars, x = ~car_models, y = ~mpg, type = 'scatter',
       layout(title = 'Various Cars and their MPGs',
              xaxis = list(title = 'Car Models',
                           zeroline = TRUE),
-             yaxis = list(title = 'MPGs'))
-
-
-plot_ly(data, x = ~Bodywt, y = ~Brainwt, type = 'scatter',
-        mode = 'text', text = ~Primates, textposition = 'middle right',
-        textfont = list(color = '#000000', size = 16)) %>%
-# Pass object to the layout function
-        layout(title = 'Primates Brain and Body Weight',
-             xaxis = list(title = 'Body Weight (kg)',
-                          zeroline = TRUE,
-                          range = c(0, 250)),
-             yaxis = list(title = 'Brain Weight (g)',
-                          range = c(0,1400)))
-
-
-
+             yaxis = list(title = 'MPGs')) 
 ```
 
